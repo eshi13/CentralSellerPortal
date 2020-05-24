@@ -10,6 +10,7 @@ services:
       - MYSQL_PASSWORD=chaos123
   central-hub-container:
     image: central-hub-image
+    restart: always
     ports:
       - 9090:9090
     build:
@@ -17,6 +18,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql-container
+    command: java -jar package.war
     environment:
       - DATABASE_HOST=mysql-container
       - DATABASE_USER=eshi13
