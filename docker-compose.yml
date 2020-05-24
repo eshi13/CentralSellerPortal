@@ -18,6 +18,8 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql-container
+    expose:
+      - '9090'
     command: java -jar package.war
     environment:
       - DATABASE_HOST=mysql-container
