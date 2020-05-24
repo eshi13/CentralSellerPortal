@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql-container
-    command: tail -f /dev/null
+    command: tail -F anything
     environment:
       - DATABASE_HOST=mysql-container
       - DATABASE_USER=eshi13
