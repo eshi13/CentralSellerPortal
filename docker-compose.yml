@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql-container
-    entrypoint:["java","-jar","/csp-mysql.war"]
+    entrypoint: ["tail", "-f", "/dev/null"]
     environment:
       - DATABASE_HOST=mysql-container
       - DATABASE_USER=eshi13
