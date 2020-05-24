@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysql-standalone1:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=palak135@95
+      - MYSQL_DATABASE=spe
+      - MYSQL_USER=eshi13
+      - MYSQL_PASSWORD=chaos123
+  central-hub-container:
+    image: central-hub-image
+    ports:
+      - 9090:9090
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-standalone1
+
