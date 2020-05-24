@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  mysql-standalone1:
-    image: mysql:latest
+  mysql-container:
+    image: mysql:5.6
     environment:
       - MYSQL_ROOT_PASSWORD=palak135@95
       - MYSQL_DATABASE=spe
@@ -16,5 +16,10 @@ services:
       context: ./
       dockerfile: Dockerfile
     depends_on:
-      - mysql-standalone1
-
+      - mysql-container
+    environment:
+      - DATABASE_HOST=mysql-container
+      - DATABASE_USER=eshi13
+      - DATABASE_PASSWORD=chaos123
+      - DATABASE_NAME=spe
+      - DATABASE_PORT=3306
