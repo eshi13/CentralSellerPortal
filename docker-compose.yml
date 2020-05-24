@@ -15,9 +15,10 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    stdin_open:true
+    tty :true
     depends_on:
       - mysql-container
-    tty:true
     environment:
       - DATABASE_HOST=mysql-container
       - DATABASE_USER=eshi13
